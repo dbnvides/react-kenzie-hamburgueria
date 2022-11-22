@@ -1,12 +1,10 @@
 import "./App.css";
-import { Menu } from "./components/Menu";
-import GlobalStyle from "./styles/global";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
     <div className="App">
-      <GlobalStyle />
-      <Menu />
+      <Dashboard />
     </div>
   );
 }

@@ -9,6 +9,7 @@ export const StyledMenu = styled.header`
   align-items: center;
   gap: 20px;
   justify-content: center;
+  filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
 
   form {
     display: flex;
@@ -20,7 +21,7 @@ export const StyledMenu = styled.header`
   input {
     width: 100%;
     padding: 15px 10px;
-    background: var(--grey-0);
+    background: var(--white);
     border: 2px solid var(--grey-20);
     border-radius: 8px;
   }
@@ -29,10 +30,5 @@ export const StyledMenu = styled.header`
     position: absolute;
     right: 5px;
     bottom: 8px;
-    padding: 8px 20px;
-    background: var(--primary);
-    border: 2px solid var(--primary);
-    border-radius: 8px;
-    color: var(--white);
   }
 `;

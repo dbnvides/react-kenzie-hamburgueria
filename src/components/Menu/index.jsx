@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../Button";
 import { StyledMenu } from "./styled";
 
 export const Menu = () => {
@@ -11,7 +12,7 @@ export const Menu = () => {
       </div>
       <form>
         <input type="text" placeholder="Digite seu lanche aqui..." />
-        <button type="submit">Pesquisar</button>
+        <Button type="submit">Pesquisar</Button>
       </form>
     </StyledMenu>
   );
