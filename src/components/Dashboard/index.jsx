@@ -26,6 +26,24 @@ const Dashboard = () => {
     }
   };
 
+  const validationCurrent = (id) => {
+    if (currentSale.length !== 0) {
+      let prodValidation = currentSale.includes(id);
+      if (prodValidation) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const handleClick = (id) => {
+    let prod = products.filter((item) => item.id === id && item);
+    let test = validationCurrent(id);
+    if (!test) {
+      setCurrentSale([...currentSale, ...prod]);
+    }
+  };
+
   const showProducts = (e) => {
     e.preventDefault();
     let findItem = e.target.elements.nameProduct.value;
@@ -56,11 +74,11 @@ const Dashboard = () => {
       </StyledMenu>
 
       {filteredProducts.length === 0 ? (
-        <ProductList list={products} />
+        <ProductList list={products} handleClick={handleClick} />
       ) : (
         <ProductList list={filteredProducts} />
       )}
-      <Cart list={products} />
+      <Cart list={currentSale} />
     </MainDashboard>
   );
 };
