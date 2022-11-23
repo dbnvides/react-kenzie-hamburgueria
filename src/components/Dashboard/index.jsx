@@ -3,6 +3,7 @@ import { MainDashboard, StyledMenu } from "./styled.js";
 import GlobalStyle from "../../styles/global";
 import { ProductList } from "../ProductList";
 import { Button } from "../Button/index.jsx";
+import Cart from "../Cart/index.jsx";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
@@ -20,7 +21,7 @@ const Dashboard = () => {
   const validation = (e) => {
     let prodName = products.map((e) => e.name);
     let prodValidation = prodName.includes(e);
-    if (!prodValidation && e.length <= 3) {
+    if (!prodValidation && e.length === 0) {
       setFilteredProducts([]);
     }
   };
@@ -59,6 +60,7 @@ const Dashboard = () => {
       ) : (
         <ProductList list={filteredProducts} />
       )}
+      <Cart list={products} />
     </MainDashboard>
   );
 };
