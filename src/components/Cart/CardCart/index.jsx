@@ -1,7 +1,12 @@
 import React from "react";
 import { BoxImgCartCard, StyledCartCard } from "./styled";
 
-export const CardCart = ({ name, category, img, id }) => {
+export const CardCart = ({ name, category, img, id, list, obj, setList }) => {
+  const removeItem = (item) => {
+    let newArr = list.filter((element) => element !== item);
+    setList(newArr);
+  };
+
   return (
     <StyledCartCard key={id}>
       <BoxImgCartCard>
@@ -11,7 +16,7 @@ export const CardCart = ({ name, category, img, id }) => {
         <h3>{name}</h3>
         <p>{category}</p>
       </div>
-      <button>Remover</button>
+      <button onClick={() => removeItem(obj)}>Remover</button>
     </StyledCartCard>
   );
 };
