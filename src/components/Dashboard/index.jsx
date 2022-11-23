@@ -4,6 +4,7 @@ import GlobalStyle from "../../styles/global";
 import { ProductList } from "../ProductList";
 import { Button } from "../Button/index.jsx";
 import Cart from "../Cart/index.jsx";
+import { api } from "../../services/api.js";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
@@ -12,10 +13,15 @@ const Dashboard = () => {
   const [cartTotal, setCartTotal] = useState(0);
 
   useEffect(() => {
-    fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products")
-      .then((response) => response.json())
-      .then((response) => setProducts(response))
-      .catch((err) => console.log(err));
+    const getProduct = async () => {
+      try {
+        const response = await api.get("products");
+        setProducts(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    getProduct();
   }, [filteredProducts]);
 
   const validation = (e) => {
