@@ -33,12 +33,15 @@ const Dashboard = () => {
   };
 
   const validationCurrent = (id) => {
-    if (currentSale.length !== 0) {
-      let prodValidation = currentSale.includes(id);
+    if (currentSale.length > 0) {
+      let prodId = currentSale.map((item) => item.id);
+      let prodValidation = prodId.includes(id);
       if (prodValidation) {
         return true;
       }
+      return false;
     }
+
     return false;
   };
 
