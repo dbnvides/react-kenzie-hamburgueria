@@ -11,7 +11,12 @@ const Card = ({ name, category, price, img, id, handleClick }) => {
       <BoxContentCard>
         <h2>{name}</h2>
         <p>{category}</p>
-        <span>{price}</span>
+        <span>
+          {price.toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </span>
         <Button type={"button"} onClick={() => handleClick(id)}>
           Adicionar
         </Button>

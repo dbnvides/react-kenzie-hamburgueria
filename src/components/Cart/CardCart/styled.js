@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const StyledCartCard = styled.li`
   width: 100%;
-  height: 80px;
+  height: 85px;
   display: flex;
   gap: 15px;
   position: relative;
+  align-items: center;
 
   .boxContent {
     display: flex;
@@ -28,13 +29,19 @@ export const StyledCartCard = styled.li`
     padding: 5px;
     right: 0;
     top: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    text-decoration: underline;
   }
 `;
 
 export const BoxImgCartCard = styled.div`
   width: 70px;
   height: 70px;
-  background-color: var(--grey-0);
+  background-color: var(--grey-20);
   border-radius: 5px;
 
   img {

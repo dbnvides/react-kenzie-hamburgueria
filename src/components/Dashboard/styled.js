@@ -2,25 +2,23 @@ import styled from "styled-components";
 
 export const MainDashboard = styled.main`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 export const StyledMenu = styled.header`
   width: 100%;
-  height: 139px;
-  background-color: var(--grey-0);
   display: flex;
+  height: 139px;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 20px;
-  justify-content: center;
-  filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
 
   form {
     display: flex;
     position: relative;
     max-width: 365px;
-    width: 90%;
+    width: 100%;
   }
 
   input {
@@ -29,6 +27,12 @@ export const StyledMenu = styled.header`
     background: var(--white);
     border: 2px solid var(--grey-20);
     border-radius: 8px;
+    justify-self: center;
+  }
+
+  .titleLogo {
+    font-size: var(--title3);
+    color: var(--secundary);
   }
 
   button {
@@ -36,4 +40,21 @@ export const StyledMenu = styled.header`
     right: 5px;
     bottom: 8px;
   }
+`;
+
+export const Menu = styled.header`
+  min-width: 100%;
+  background-color: var(--grey-0);
+  filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
+`;
+
+export const ResultSearch = styled.div`
+  .titleSearch {
+    padding: 30px 0 10px 0;
+    font-size: var(--title2);
+  }
+`;
+
+export const InputName = styled.span`
+  color: var(--grey-50);
 `;
