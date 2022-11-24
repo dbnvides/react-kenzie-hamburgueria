@@ -13,5 +13,12 @@ export const StyledButton = styled.button`
     padding: 10px 20px;
     font-size: var(--body);
     width: 122px;
+    font-size: var(--body);
+    font-weight: var(--semibold);
+  }
+
+  &:hover {
+    background-color: var(--sucess);
+    border: 2px solid var(--sucess);
   }
 `;

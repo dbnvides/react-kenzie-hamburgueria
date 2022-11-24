@@ -106,9 +106,12 @@ const Dashboard = () => {
             <ProductList list={products} handleClick={handleClick} />
           ) : (
             <ResultSearch>
-              <h2 className="titleSearch">
-                Resultados para: <InputName>{nameSearch}</InputName>
-              </h2>
+              <div className="boxItem">
+                <h2 className="titleSearch">
+                  Resultados para: <InputName>{nameSearch}</InputName>
+                </h2>
+                <Button className={"btnClearList"}>Limpar busca</Button>
+              </div>
               <ProductList list={filteredProducts} handleClick={handleClick} />
             </ResultSearch>
           )}

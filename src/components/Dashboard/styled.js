@@ -64,9 +64,40 @@ export const Menu = styled.section`
 `;
 
 export const ResultSearch = styled.div`
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   .titleSearch {
-    padding: 30px 0 10px 0;
     font-size: var(--title2);
+  }
+
+  .btnClearList {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    display: block;
+
+    .boxItem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+
+      .btnClearList {
+        display: block;
+        padding: 10px 20px;
+        width: max-content;
+        font-size: var(--body);
+      }
+
+      button:hover {
+        background-color: var(--sucess);
+        border: 2px solid var(--sucess);
+      }
+    }
   }
 `;
 
@@ -76,10 +107,15 @@ export const InputName = styled.span`
 
 export const SectionDashboard = styled.section`
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  gap: 20px;
 
   @media (min-width: 768px) {
     display: flex;
     justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 20px;
   }
 `;
