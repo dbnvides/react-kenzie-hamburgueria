@@ -29,6 +29,10 @@ export const StyledMainCart = styled.main`
     gap: 15px;
     padding: 20px;
   }
+
+  @media (min-width: 768px) {
+    margin: 0;
+  }
 `;
 
 export const StyledBoxEmpty = styled.div`

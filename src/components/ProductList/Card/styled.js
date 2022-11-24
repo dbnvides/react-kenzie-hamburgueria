@@ -10,8 +10,9 @@ export const StyledCard = styled.li`
   border-radius: 5px;
   border: 2px solid var(--grey-20);
   transition: 0.3s;
+
   &:hover {
-    box-shadow: 0px 0px 62px -20px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.9);
     transition: 0.3s;
   }
 

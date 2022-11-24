@@ -4,6 +4,7 @@ import {
   MainDashboard,
   Menu,
   ResultSearch,
+  SectionDashboard,
   StyledMenu,
 } from "./styled.js";
 import GlobalStyle from "../../styles/global";
@@ -18,7 +19,6 @@ const Dashboard = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [nameSearch, setNameSearch] = useState("");
   const [currentSale, setCurrentSale] = useState([]);
-  const [cartTotal, setCartTotal] = useState(0);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -30,7 +30,7 @@ const Dashboard = () => {
       }
     };
     getProduct();
-  }, [filteredProducts]);
+  }, []);
 
   const validation = (e) => {
     let prodName = products.map((e) => e.name);
@@ -92,7 +92,7 @@ const Dashboard = () => {
               <input
                 type="text"
                 name="nameProduct"
-                placeholder="Digite seu lanche aqui..."
+                placeholder="Digite seu produto aqui..."
                 onChange={(e) => validation(e.target.value)}
               />
               <Button type={"submit"}>Pesquisar</Button>
@@ -101,18 +101,23 @@ const Dashboard = () => {
         </Container>
       </Menu>
       <Container>
-        {filteredProducts.length === 0 ? (
-          <ProductList list={products} handleClick={handleClick} />
-        ) : (
-          <ResultSearch>
-            <h2 className="titleSearch">
-              Resultados para: <InputName>{nameSearch}</InputName>
-            </h2>
-            <ProductList list={filteredProducts} handleClick={handleClick} />
-          </ResultSearch>
-        )}
+        <SectionDashboard>
+          {filteredProducts.length === 0 ? (
+            <ProductList list={products} handleClick={handleClick} />
+          ) : (
+            <ResultSearch>
+              <div className="boxItem">
+                <h2 className="titleSearch">
+                  Resultados para: <InputName>{nameSearch}</InputName>
+                </h2>
+                <Button className={"btnClearList"}>Limpar busca</Button>
+              </div>
+              <ProductList list={filteredProducts} handleClick={handleClick} />
+            </ResultSearch>
+          )}
 
-        <Cart list={currentSale} setList={setCurrentSale} />
+          <Cart list={currentSale} setList={setCurrentSale} />
+        </SectionDashboard>
       </Container>
     </MainDashboard>
   );
