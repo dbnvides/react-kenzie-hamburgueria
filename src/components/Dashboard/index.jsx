@@ -18,7 +18,6 @@ const Dashboard = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [nameSearch, setNameSearch] = useState("");
   const [currentSale, setCurrentSale] = useState([]);
-  const [cartTotal, setCartTotal] = useState(0);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -30,7 +29,7 @@ const Dashboard = () => {
       }
     };
     getProduct();
-  }, [filteredProducts]);
+  }, []);
 
   const validation = (e) => {
     let prodName = products.map((e) => e.name);
@@ -92,7 +91,7 @@ const Dashboard = () => {
               <input
                 type="text"
                 name="nameProduct"
-                placeholder="Digite seu lanche aqui..."
+                placeholder="Digite seu produto aqui..."
                 onChange={(e) => validation(e.target.value)}
               />
               <Button type={"submit"}>Pesquisar</Button>

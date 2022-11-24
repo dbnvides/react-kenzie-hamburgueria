@@ -14,6 +14,12 @@ export const StyledMenu = styled.header`
   align-items: center;
   gap: 20px;
 
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80px;
+  }
+
   form {
     display: flex;
     position: relative;
@@ -28,6 +34,11 @@ export const StyledMenu = styled.header`
     border: 2px solid var(--grey-20);
     border-radius: 8px;
     justify-self: center;
+    font-size: var(--body);
+
+    @media (min-width: 768px) {
+      font-size: var(--title3);
+    }
   }
 
   .titleLogo {
@@ -39,10 +50,14 @@ export const StyledMenu = styled.header`
     position: absolute;
     right: 5px;
     bottom: 8px;
+
+    @media (min-width: 768px) {
+      bottom: 6px;
+    }
   }
 `;
 
-export const Menu = styled.header`
+export const Menu = styled.section`
   min-width: 100%;
   background-color: var(--grey-0);
   filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
