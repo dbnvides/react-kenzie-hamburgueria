@@ -13,6 +13,7 @@ import { Button } from "../Button/index.jsx";
 import Cart from "../Cart/index.jsx";
 import { api } from "../../services/api.js";
 import Container from "../Container/index.jsx";
+import { toast } from "react-toastify";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
@@ -61,6 +62,8 @@ const Dashboard = () => {
     let test = validationCurrent(id);
     if (!test) {
       setCurrentSale([...currentSale, ...prod]);
+    } else {
+      toast.error("Produto ja adicionado");
     }
   };
 
@@ -71,10 +74,12 @@ const Dashboard = () => {
     let nameProd = products.filter((prod) => prod.name === findItem);
     let nameCategory = products.filter((prod) => prod.category === findItem);
     if (nameProd.length > 0) {
-      setFilteredProducts(nameProd);
-    } else {
-      setFilteredProducts(nameCategory);
+      return setFilteredProducts(nameProd);
     }
+    if (nameCategory.length > 0) {
+      return setFilteredProducts(nameCategory);
+    }
+    return toast.error("Produto não encontrado");
   };
 
   return (
