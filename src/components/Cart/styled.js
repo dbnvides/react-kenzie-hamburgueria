@@ -31,7 +31,7 @@ export const StyledMainCart = styled.main`
   }
 
   @media (min-width: 768px) {
-    margin: 0;
+    margin: 10px 0;
   }
 `;
 

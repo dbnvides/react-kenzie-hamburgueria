@@ -12,8 +12,9 @@ export const StyledProduct = styled.ul`
   @media (min-width: 768px) {
     max-width: 960px;
     flex-wrap: wrap;
-    height: 100%;
+    justify-content: flex-start;
+    height: max-content;
+    max-height: 80vh;
     overflow: auto;
-    padding: 10px;
   }
 `;
