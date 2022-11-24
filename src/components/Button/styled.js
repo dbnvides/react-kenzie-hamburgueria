@@ -8,4 +8,17 @@ export const StyledButton = styled.button`
   border-radius: 8px;
   color: var(--white);
   cursor: pointer;
+
+  @media (min-width: 768px) {
+    padding: 10px 20px;
+    font-size: var(--body);
+    width: 122px;
+    font-size: var(--body);
+    font-weight: var(--semibold);
+  }
+
+  &:hover {
+    background-color: var(--sucess);
+    border: 2px solid var(--sucess);
+  }
 `;

@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { MainDashboard, StyledMenu } from "./styled.js";
+import {
+  InputName,
+  MainDashboard,
+  Menu,
+  ResultSearch,
+  SectionDashboard,
+  StyledMenu,
+} from "./styled.js";
 import GlobalStyle from "../../styles/global";
 import { ProductList } from "../ProductList";
 import { Button } from "../Button/index.jsx";
 import Cart from "../Cart/index.jsx";
 import { api } from "../../services/api.js";
+import Container from "../Container/index.jsx";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [nameSearch, setNameSearch] = useState("");
   const [currentSale, setCurrentSale] = useState([]);
-  const [cartTotal, setCartTotal] = useState(0);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -22,13 +30,17 @@ const Dashboard = () => {
       }
     };
     getProduct();
-  }, [filteredProducts]);
+  }, []);
 
   const validation = (e) => {
     let prodName = products.map((e) => e.name);
+    let prodCategory = products.map((e) => e.category);
     let prodValidation = prodName.includes(e);
-    if (!prodValidation && e.length === 0) {
-      setFilteredProducts([]);
+    let prodValidationCategory = prodCategory.includes(e);
+    if (!prodValidation || !prodValidationCategory) {
+      if (e.length === 0) {
+        setFilteredProducts([]);
+      }
     }
   };
 
@@ -41,7 +53,6 @@ const Dashboard = () => {
       }
       return false;
     }
-
     return false;
   };
 
@@ -56,38 +67,63 @@ const Dashboard = () => {
   const showProducts = (e) => {
     e.preventDefault();
     let findItem = e.target.elements.nameProduct.value;
+    setNameSearch(findItem);
     let nameProd = products.filter((prod) => prod.name === findItem);
+    let nameCategory = products.filter((prod) => prod.category === findItem);
     if (nameProd.length > 0) {
       setFilteredProducts(nameProd);
+    } else {
+      setFilteredProducts(nameCategory);
     }
   };
 
   return (
     <MainDashboard>
       <GlobalStyle />
-      <StyledMenu>
-        <div>
-          <h2>
-            Burguer <span>Kenzie</span>
-          </h2>
-        </div>
-        <form onSubmit={(e) => showProducts(e)}>
-          <input
-            type="text"
-            name="nameProduct"
-            placeholder="Digite seu lanche aqui..."
-            onChange={(e) => validation(e.target.value)}
-          />
-          <Button type={"submit"}>Pesquisar</Button>
-        </form>
-      </StyledMenu>
+      <Menu>
+        <Container>
+          <StyledMenu>
+            <div>
+              <h2>
+                Burguer <span className="titleLogo">Kenzie</span>
+              </h2>
+            </div>
+            <form onSubmit={(e) => showProducts(e)}>
+              <input
+                type="text"
+                name="nameProduct"
+                placeholder="Digite seu produto aqui..."
+                onChange={(e) => validation(e.target.value)}
+              />
+              <Button type={"submit"}>Pesquisar</Button>
+            </form>
+          </StyledMenu>
+        </Container>
+      </Menu>
+      <Container>
+        <SectionDashboard>
+          {filteredProducts.length === 0 ? (
+            <ProductList list={products} handleClick={handleClick} />
+          ) : (
+            <ResultSearch>
+              <div className="boxItem">
+                <h2 className="titleSearch">
+                  Resultados para: <InputName>{nameSearch}</InputName>
+                </h2>
+                <Button
+                  className={"btnClearList"}
+                  onClick={() => setFilteredProducts([])}
+                >
+                  Limpar busca
+                </Button>
+              </div>
+              <ProductList list={filteredProducts} handleClick={handleClick} />
+            </ResultSearch>
+          )}
 
-      {filteredProducts.length === 0 ? (
-        <ProductList list={products} handleClick={handleClick} />
-      ) : (
-        <ProductList list={filteredProducts} />
-      )}
-      <Cart list={currentSale} />
+          <Cart list={currentSale} setList={setCurrentSale} />
+        </SectionDashboard>
+      </Container>
     </MainDashboard>
   );
 };
