@@ -4,6 +4,7 @@ import {
   MainDashboard,
   Menu,
   ResultSearch,
+  SectionDashboard,
   StyledMenu,
 } from "./styled.js";
 import GlobalStyle from "../../styles/global";
@@ -100,18 +101,20 @@ const Dashboard = () => {
         </Container>
       </Menu>
       <Container>
-        {filteredProducts.length === 0 ? (
-          <ProductList list={products} handleClick={handleClick} />
-        ) : (
-          <ResultSearch>
-            <h2 className="titleSearch">
-              Resultados para: <InputName>{nameSearch}</InputName>
-            </h2>
-            <ProductList list={filteredProducts} handleClick={handleClick} />
-          </ResultSearch>
-        )}
+        <SectionDashboard>
+          {filteredProducts.length === 0 ? (
+            <ProductList list={products} handleClick={handleClick} />
+          ) : (
+            <ResultSearch>
+              <h2 className="titleSearch">
+                Resultados para: <InputName>{nameSearch}</InputName>
+              </h2>
+              <ProductList list={filteredProducts} handleClick={handleClick} />
+            </ResultSearch>
+          )}
 
-        <Cart list={currentSale} setList={setCurrentSale} />
+          <Cart list={currentSale} setList={setCurrentSale} />
+        </SectionDashboard>
       </Container>
     </MainDashboard>
   );

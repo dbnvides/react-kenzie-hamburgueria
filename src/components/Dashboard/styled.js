@@ -73,3 +73,13 @@ export const ResultSearch = styled.div`
 export const InputName = styled.span`
   color: var(--grey-50);
 `;
+
+export const SectionDashboard = styled.section`
+  width: 100%;
+  min-height: 100vh;
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
