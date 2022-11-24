@@ -69,6 +69,7 @@ export const ResultSearch = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+
   .titleSearch {
     font-size: var(--title2);
   }
@@ -84,7 +85,7 @@ export const ResultSearch = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 20px;
+      padding: 20px 10px;
 
       .btnClearList {
         display: block;
@@ -106,8 +107,9 @@ export const InputName = styled.span`
 `;
 
 export const SectionDashboard = styled.section`
-  width: 100%;
-  min-height: 80vh;
+  max-width: 100%;
+  min-height: 90vh;
+  max-height: 90vh;
   padding-top: 40px;
   padding-bottom: 20px;
   gap: 20px;

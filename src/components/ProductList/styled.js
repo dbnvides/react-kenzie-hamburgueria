@@ -7,9 +7,9 @@ export const StyledProduct = styled.ul`
   overflow: auto;
   gap: 20px;
   padding: 10px;
+  transition: 0.2s;
 
   @media (min-width: 768px) {
-    min-width: 60%;
     max-width: 960px;
     flex-wrap: wrap;
     height: 100%;

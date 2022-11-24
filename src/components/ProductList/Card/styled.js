@@ -9,7 +9,7 @@ export const StyledCard = styled.li`
   flex-direction: column;
   border-radius: 5px;
   border: 2px solid var(--grey-20);
-  transition: 0.3s;
+  transition: 0.5s;
 
   &:hover {
     box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.9);
@@ -19,6 +19,10 @@ export const StyledCard = styled.li`
   div {
     display: flex;
     flex-direction: column;
+  }
+
+  @media (min-width: 768px) {
+    height: 350px;
   }
 `;
 export const BoxImgCard = styled.div`
@@ -54,5 +58,22 @@ export const BoxContentCard = styled.div`
     color: var(--primary);
     font-size: var(--title4);
     font-weight: var(--semibold);
+  }
+
+  @media (min-width: 768px) {
+    h2 {
+      font-size: var(--title2);
+    }
+
+    p {
+      color: var(--grey-50);
+      font-size: var(--body);
+    }
+
+    span {
+      color: var(--primary);
+      font-size: var(--title3);
+      font-weight: var(--semibold);
+    }
   }
 `;
