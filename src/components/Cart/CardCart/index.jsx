@@ -8,7 +8,7 @@ export const CardCart = ({ name, category, img, id, list, obj, setList }) => {
   };
 
   return (
-    <StyledCartCard key={id}>
+    <StyledCartCard key={id} animate={{ y: [-50, 0, 0] }}>
       <BoxImgCartCard>
         <img src={img} alt={name} />
       </BoxImgCartCard>

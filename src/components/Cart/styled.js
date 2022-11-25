@@ -47,7 +47,7 @@ export const StyledBoxEmpty = styled.div`
   }
 `;
 
-export const StyledCartTotal = styled.div`
+export const StyledCart = styled.div`
   display: flex;
   padding: 0 10px;
   padding-top: 20px;

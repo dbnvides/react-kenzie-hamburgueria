@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Dashboard />
-      <ToastContainer autoClose={2000} />
+      <ToastContainer autoClose={2000} position="top-center" />
     </div>
   );
 }

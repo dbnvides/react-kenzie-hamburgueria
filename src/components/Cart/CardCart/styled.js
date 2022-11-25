@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const StyledCartCard = styled.li`
+export const StyledCartCard = styled(motion.li)`
   width: 100%;
   min-height: 85px;
   display: flex;

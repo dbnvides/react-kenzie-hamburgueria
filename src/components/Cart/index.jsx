@@ -1,6 +1,6 @@
 import React from "react";
 import { CardCart } from "./CardCart";
-import { StyledBoxEmpty, StyledCartTotal, StyledMainCart } from "./styled";
+import { StyledBoxEmpty, StyledCart, StyledMainCart } from "./styled";
 
 const Cart = ({ list, setList }) => {
   const emptyList = () => {
@@ -28,7 +28,7 @@ const Cart = ({ list, setList }) => {
           <p>Adicione itens</p>
         </StyledBoxEmpty>
       ) : (
-        <StyledCartTotal>
+        <StyledCart>
           <ul>
             {list.map((item) => (
               <CardCart
@@ -55,7 +55,7 @@ const Cart = ({ list, setList }) => {
           <button className="btnRemoveAll" onClick={() => emptyList()}>
             Remover todos
           </button>
-        </StyledCartTotal>
+        </StyledCart>
       )}
     </StyledMainCart>
   );
