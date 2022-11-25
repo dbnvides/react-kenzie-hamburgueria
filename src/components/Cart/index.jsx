@@ -1,6 +1,6 @@
 import React from "react";
 import { CardCart } from "./CardCart";
-import { StyledBoxEmpty, StyledCartTotal, StyledMainCart } from "./styled";
+import { StyledBoxEmpty, StyledCart, StyledMainCart } from "./styled";
 
 const Cart = ({ list, setList }) => {
   const emptyList = () => {
@@ -28,32 +28,34 @@ const Cart = ({ list, setList }) => {
           <p>Adicione itens</p>
         </StyledBoxEmpty>
       ) : (
-        <ul>
-          {list.map((item) => (
-            <CardCart
-              setList={setList}
-              list={list}
-              obj={item}
-              key={item.id}
-              id={item.id}
-              name={item.name}
-              category={item.category}
-              img={item.img}
-            />
-          ))}
-          <StyledCartTotal>
-            <div>
-              <p>Total</p>
-              <span>
-                {totalCash.toLocaleString("pt-br", {
-                  style: "currency",
-                  currency: "BRL",
-                })}
-              </span>
-            </div>
-            <button onClick={() => emptyList()}>Remover todos</button>
-          </StyledCartTotal>
-        </ul>
+        <StyledCart>
+          <ul>
+            {list.map((item) => (
+              <CardCart
+                setList={setList}
+                list={list}
+                obj={item}
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                category={item.category}
+                img={item.img}
+              />
+            ))}
+          </ul>
+          <div className="allValue">
+            <p>Total</p>
+            <span>
+              {totalCash.toLocaleString("pt-br", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </span>
+          </div>
+          <button className="btnRemoveAll" onClick={() => emptyList()}>
+            Remover todos
+          </button>
+        </StyledCart>
       )}
     </StyledMainCart>
   );
