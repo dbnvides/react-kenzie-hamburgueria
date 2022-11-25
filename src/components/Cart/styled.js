@@ -64,6 +64,16 @@ export const StyledCart = styled.div`
     gap: 15px;
     border-bottom: 2px solid var(--grey-20);
     overflow: auto;
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      width: 5px;
+      background-color: var(--primary);
+      border-radius: 5px;
+    }
   }
 
   .allValue {

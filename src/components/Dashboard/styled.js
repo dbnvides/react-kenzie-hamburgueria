@@ -108,7 +108,6 @@ export const InputName = styled.span`
 
 export const SectionDashboard = styled.section`
   max-width: 100%;
-  min-height: 90vh;
   max-height: 90vh;
   padding-top: 40px;
   padding-bottom: 20px;
