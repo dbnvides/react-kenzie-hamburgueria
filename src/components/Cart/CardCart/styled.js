@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledCartCard = styled.li`
   width: 100%;
-  height: 85px;
+  min-height: 85px;
   display: flex;
   gap: 15px;
   position: relative;
