@@ -20,18 +20,8 @@ export const StyledMainCart = styled.main`
     font-size: var(--title3);
   }
 
-  ul {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    width: 100%;
-    min-height: 160px;
-    gap: 15px;
-    padding: 20px;
-  }
-
   @media (min-width: 768px) {
-    margin: 0;
+    margin: 10px 0;
   }
 `;
 
@@ -57,30 +47,50 @@ export const StyledBoxEmpty = styled.div`
   }
 `;
 
-export const StyledCartTotal = styled.div`
+export const StyledCart = styled.div`
   display: flex;
   padding: 0 10px;
   padding-top: 20px;
   flex-direction: column;
-  height: 110px;
+  max-height: 70vh;
   gap: 20px;
-  border-top: 2px solid var(--grey-20);
 
-  div {
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+    min-height: 130px;
+    gap: 15px;
+    border-bottom: 2px solid var(--grey-20);
+    overflow: auto;
+  }
+
+  .allValue {
     display: flex;
     justify-content: space-between;
+    padding: 10px;
+
+    span {
+      font-weight: var(--bold);
+    }
+
+    p {
+      font-weight: var(--bold);
+    }
   }
-  button {
+  .btnRemoveAll {
     width: 100%;
-    max-width: 350px;
+    max-width: 100%;
     padding: 15px;
     border-radius: 8px;
     border: 1px solid var(--grey-20);
     color: var(--grey-50);
     font-weight: var(--bold);
     transition: 0.2s;
+    margin-bottom: 20px;
   }
-  button:hover {
+  .btnRemoveAll:hover {
     background-color: var(--secundary);
     color: var(--white);
     cursor: pointer;
